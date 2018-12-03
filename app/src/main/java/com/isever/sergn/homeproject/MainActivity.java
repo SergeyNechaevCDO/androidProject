@@ -6,22 +6,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.isever.sergn.homeproject.controllers.CityAdapter;
+import com.isever.sergn.homeproject.controllers.LifeCycleApp;
 import com.isever.sergn.homeproject.resource.City;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String lifeCycleName = "";
+
     private ArrayList<City> cities = new ArrayList<>();
 
     ListView countriesList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        lifeCycleName = "onCreate";
+        new LifeCycleApp(lifeCycleName, getApplicationContext());
 
         setInitialData();
         countriesList = findViewById(R.id.countriesList);
@@ -41,5 +47,61 @@ public class MainActivity extends AppCompatActivity {
     private void setInitialData(){
         cities.add(new City("Московская область", "Москва", R.drawable.moscow));
         cities.add(new City("Московская область", "Коломна", R.drawable.colomna));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        lifeCycleName = "onStart";
+        new LifeCycleApp(lifeCycleName, getApplicationContext());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        lifeCycleName = "onRestoreInstanceState";
+        new LifeCycleApp(lifeCycleName, getApplicationContext());
+    }
+
+    @Override
+    protected void onRestart(){
+        super.onRestart();
+        lifeCycleName = "onRestart";
+        new LifeCycleApp(lifeCycleName, getApplicationContext());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        lifeCycleName = "onResume";
+        new LifeCycleApp(lifeCycleName, getApplicationContext());
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        lifeCycleName = "onPause";
+        new LifeCycleApp(lifeCycleName, getApplicationContext());
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        lifeCycleName = "onSaveInstanceState";
+        new LifeCycleApp(lifeCycleName, getApplicationContext());
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        lifeCycleName = "onStop";
+        new LifeCycleApp(lifeCycleName, getApplicationContext());
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        lifeCycleName = "onDestroy";
+        new LifeCycleApp(lifeCycleName, getApplicationContext());
     }
 }
