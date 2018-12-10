@@ -7,4 +7,11 @@
     <string name="temperature">-2° 3°</string>
     <string name="todo">TODO</string>
     <string name="city">Москва</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_wind">Показать скорость ветра</string>
+    <string name="deactivate_wind">Скрыть скорость ветра</string>
+    <string name="action_humidity">Показать влажность</string>
+    <string name="deactivate_humidity">Скрыть влажность</string>
+    <string name="action_pressure">Показать давление</string>
+    <string name="deactivate_pressure">Скрыть давление</string>
 </resources>

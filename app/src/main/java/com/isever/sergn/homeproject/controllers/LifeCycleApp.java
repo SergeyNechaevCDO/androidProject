@@ -10,9 +10,11 @@ public class LifeCycleApp {
 
     @SuppressLint("ShowToast")
     public LifeCycleApp(String nameCycle, Context context){
-        Toast.makeText(context, nameCycle, Toast.LENGTH_SHORT).show();
-        Log.i(TAG, "///////////////////////////////////");
-        Log.i(TAG, nameCycle);
-        Log.i(TAG, "///////////////////////////////////");
+        if (context != null){
+            Toast.makeText(context, nameCycle, Toast.LENGTH_SHORT).show();
+            Log.i(TAG, "///////////////////////////////////");
+            Log.i(TAG, nameCycle);
+            Log.i(TAG, "///////////////////////////////////");
+        }
     }
 }
