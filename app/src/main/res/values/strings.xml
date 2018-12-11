@@ -4,7 +4,10 @@
     <string name="region_name">Область</string>
     <string name="date">Сегодня</string>
     <string name="params">Облачно в течение всего дня</string>
-    <string name="temperature">-2° 3°</string>
+    <string name="param_snow_text">Снег</string>
+    <string name="param_cloudless_text">Безоблачно</string>
+    <string name="temperature_snow">-2°</string>
+    <string name="temperature">10°</string>
     <string name="todo">TODO</string>
     <string name="city">Москва</string>
     <string name="action_settings">Настройки</string>
@@ -14,4 +17,11 @@
     <string name="deactivate_humidity">Скрыть влажность</string>
     <string name="action_pressure">Показать давление</string>
     <string name="deactivate_pressure">Скрыть давление</string>
+    <string name="time">14:11</string>
+    <string name="humidity">влажность</string>
+    <string name="humidity_value">55%</string>
+    <string name="wind">скорость ветра</string>
+    <string name="wind_value">4 м/с</string>
+    <string name="pressure">давление</string>
+    <string name="pressure_value">759 мм</string>
 </resources>

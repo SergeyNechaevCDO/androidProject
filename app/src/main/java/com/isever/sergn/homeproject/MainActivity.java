@@ -1,24 +1,36 @@
 package com.isever.sergn.homeproject;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import com.isever.sergn.homeproject.controllers.CityAdapter;
-import com.isever.sergn.homeproject.controllers.LifeCycleApp;
 import com.isever.sergn.homeproject.resource.City;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    /**
+     * param String
+     */
+    public final static String CITY = "CITY";
+    /**
+     * param boolean
+     */
+    public final static String WIND = "WIND";
+    /**
+     * param boolean
+     */
+    public final static String HUMIDITY = "HUMIDITY";
+    /**
+     * param boolean
+     */
+    public final static String PRESSURE = "PRESSURE";
+
 
     private MenuItem wind;
     private MenuItem humidity;
@@ -28,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
     ListView countriesList;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setInitialData();
+        createCountriesList();
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -40,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                     wind.setChecked(true);
                     wind.setTitle(R.string.deactivate_wind);
                 }
-                return true;
             case R.id.action_humidity:
                 if (item.isCheckable() && item.isChecked()){
                     humidity.setChecked(false);
@@ -49,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                     humidity.setChecked(true);
                     humidity.setTitle(R.string.deactivate_humidity);
                 }
-                return true;
             case R.id.action_pressure:
                 if (item.isCheckable() && item.isChecked()){
                     pressure.setChecked(false);
@@ -58,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
                     pressure.setChecked(true);
                     pressure.setTitle(R.string.deactivate_pressure);
                 }
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -73,30 +89,28 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_main);
-
-        setInitialData();
+    private void createCountriesList(){
         countriesList = findViewById(R.id.countriesList);
         CityAdapter cityAdapter = new CityAdapter(this, R.layout.list_item, cities);
         countriesList.setAdapter(cityAdapter);
-        AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                City selectedCity = (City) parent.getItemAtPosition(position);
-
-                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                intent.putExtra("CITY", selectedCity.getCity());
-                intent.putExtra("WIND", String.valueOf(wind.isChecked()));
-                intent.putExtra("HUMIDITY", String.valueOf(humidity.isChecked()));
-                intent.putExtra("PRESSURE", String.valueOf(pressure.isChecked()));
-                startActivity(intent);
-            }
-        };
         countriesList.setOnItemClickListener(itemListener);
+    }
+
+    private AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+            City selectedCity = (City) parent.getItemAtPosition(position);
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            setIntent(intent, selectedCity);
+        }
+    };
+
+    private void setIntent(Intent intent, City city){
+        intent.putExtra(CITY, city.getCity());
+        intent.putExtra(WIND, wind.isChecked());
+        intent.putExtra(HUMIDITY, humidity.isChecked());
+        intent.putExtra(PRESSURE, pressure.isChecked());
+        startActivity(intent);
     }
 
     private void setInitialData() {

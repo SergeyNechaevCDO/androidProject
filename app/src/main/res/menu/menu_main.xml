@@ -13,24 +13,26 @@
         <item
             android:id="@+id/action_wind"
             android:checkable="true"
-            android:checked="false"
+            android:checked="true"
             android:orderInCategory="100"
             android:title="@string/action_wind"
-            app:showAsAction="never" />
+            app:showAsAction="never|withText|collapseActionView" />
 
         <item
             android:id="@+id/action_humidity"
             android:checkable="true"
+            android:checked="true"
             android:orderInCategory="100"
             android:title="@string/action_humidity"
-            app:showAsAction="never" />
+            app:showAsAction="never|withText|collapseActionView" />
 
         <item
             android:id="@+id/action_pressure"
             android:checkable="true"
+            android:checked="true"
             android:orderInCategory="100"
             android:title="@string/action_pressure"
-            app:showAsAction="never" />
+            app:showAsAction="never|withText|collapseActionView" />
     </group>
 
 </menu>
