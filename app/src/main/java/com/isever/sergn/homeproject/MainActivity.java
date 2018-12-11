@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     wind.setChecked(true);
                     wind.setTitle(R.string.deactivate_wind);
                 }
+                return true;
             case R.id.action_humidity:
                 if (item.isCheckable() && item.isChecked()){
                     humidity.setChecked(false);
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     humidity.setChecked(true);
                     humidity.setTitle(R.string.deactivate_humidity);
                 }
+                return true;
             case R.id.action_pressure:
                 if (item.isCheckable() && item.isChecked()){
                     pressure.setChecked(false);
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     pressure.setChecked(true);
                     pressure.setTitle(R.string.deactivate_pressure);
                 }
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
