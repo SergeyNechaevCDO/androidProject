@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="min_marge_10">10dp</dimen>
+    <dimen name="myTextSize30">30sp</dimen>
+    <dimen name="min_marge_20">20dp</dimen>
+    <dimen name="myTextSize40">40sp</dimen>
+    <dimen name="myTextSize12">12sp</dimen>
+    <dimen name="myTextSize35">35sp</dimen>
+</resources>
