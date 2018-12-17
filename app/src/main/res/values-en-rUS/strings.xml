@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="city_name">Cities</string>
+    <string name="region_name">Region</string>
+    <string name="date">Today</string>
+    <string name="params">Cloudy all day</string>
+    <string name="param_snow_text">Snow</string>
+    <string name="param_cloudless_text">Cloudless</string>
+    <string name="temperature_snow">-2°</string>
+    <string name="temperature">10°</string>
+    <string name="todo">TODO</string>
+    <string name="city">Moscow</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_wind">Show wind speed</string>
+    <string name="deactivate_wind">Hide wind speed</string>
+    <string name="action_humidity">Show humidity</string>
+    <string name="deactivate_humidity">Hide humidity</string>
+    <string name="action_pressure">Show pressure</string>
+    <string name="deactivate_pressure">Hide pressure</string>
+    <string name="time">14:11</string>
+    <string name="humidity">humidity</string>
+    <string name="humidity_value">55%</string>
+    <string name="wind">wind speed</string>
+    <string name="wind_value">4 m/s</string>
+    <string name="pressure">pressure</string>
+    <string name="pressure_value">759 mm</string>
+    <string name="darkTheme">dark theme</string>
+    <string name="whiteTheme">white theme</string>
+    <string name="editWhiteTheme">Topic changed to light</string>
+    <string name="editDarkTheme">Topic changed to dark</string>
+</resources>
