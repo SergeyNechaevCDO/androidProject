@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/humidity"
+        style="@style/extra_options_linear_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/humidity" />
+
+        <TextView
+            style="@style/extra_options_linear_layout_text_view_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/humidity" />
+
+        <TextView
+            style="@style/extra_options_linear_layout_text_view_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/humidity_value" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wind"
+        style="@style/extra_options_linear_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/wind" />
+
+        <android.support.v7.widget.AppCompatTextView
+            style="@style/extra_options_linear_layout_text_view_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wind" />
+
+        <android.support.v7.widget.AppCompatTextView
+            style="@style/extra_options_linear_layout_text_view_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wind_value" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pressure"
+        style="@style/extra_options_linear_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/pressure" />
+
+        <android.support.v7.widget.AppCompatTextView
+            style="@style/extra_options_linear_layout_text_view_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pressure" />
+
+        <android.support.v7.widget.AppCompatTextView
+            style="@style/extra_options_linear_layout_text_view_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pressure_value" />
+    </LinearLayout>
+</LinearLayout>

@@ -15,7 +15,7 @@
             android:checkable="true"
             android:checked="true"
             android:orderInCategory="100"
-            android:title="@string/action_wind"
+            android:title="@string/deactivate_wind"
             app:showAsAction="never|withText|collapseActionView" />
 
         <item
@@ -23,7 +23,7 @@
             android:checkable="true"
             android:checked="true"
             android:orderInCategory="100"
-            android:title="@string/action_humidity"
+            android:title="@string/deactivate_humidity"
             app:showAsAction="never|withText|collapseActionView" />
 
         <item
@@ -31,7 +31,7 @@
             android:checkable="true"
             android:checked="true"
             android:orderInCategory="100"
-            android:title="@string/action_pressure"
+            android:title="@string/deactivate_pressure"
             app:showAsAction="never|withText|collapseActionView" />
 
         <item

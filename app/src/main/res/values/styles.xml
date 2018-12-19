@@ -22,4 +22,49 @@
         <item name="android:layout_height">50dp</item>
     </style>
 
+    <style name="extra_options_linear_layout">
+        <item name="android:orientation">vertical</item>
+        <!--<item name="android:visibility">gone</item>-->
+    </style>
+    <style name="extra_options_linear_layout_text_view_12">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="extra_options_linear_layout_text_view_20" parent="extra_options_linear_layout_text_view_12">
+        <item name="android:textSize">@dimen/sp_20</item>
+        <item name="android:layout_marginTop">@dimen/dp_5</item>
+    </style>
+
+    <style name="main_params_linear_layout">
+        <item name="android:layout_margin">@dimen/dp_10</item>
+        <item name="android:alpha">0.7</item>
+        <item name="android:background">@xml/rounded_corners</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="main_params_linear_layout_text_view_30" parent="extra_options_linear_layout_text_view_12">
+        <item name="android:textSize">@dimen/sp_30</item>
+    </style>
+
+    <style name="main_params_linear_layout_text_view_temperature" parent="extra_options_linear_layout_text_view_12">
+        <item name="android:paddingTop">@dimen/dp_20</item>
+        <item name="android:textSize">@dimen/sp_40</item>
+    </style>
+
+    <style name="main_params_linear_layout_text_view_text_info" parent="main_params_linear_layout_text_view_temperature">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="main_params_linear_layout_edit_text_date" parent="extra_options_linear_layout_text_view_12">
+        <item name="android:clickable">false</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:ems">10</item>
+        <item name="android:focusable">false</item>
+        <item name="android:inputType">time</item>
+        <item name="android:longClickable">false</item>
+        <item name="android:textSize">@dimen/sp_25</item>
+    </style>
+
 </resources>

@@ -25,4 +25,15 @@
     <string name="wind_value">4 m/s</string>
     <string name="pressure">pressure</string>
     <string name="pressure_value">759 mm</string>
+    <string name="darkTheme">dark theme</string>
+    <string name="whiteTheme">white theme</string>
+    <string name="editWhiteTheme">Topic changed to light</string>
+    <string name="editDarkTheme">Topic changed to dark</string>
+    <string-array name="Cities">
+        <item>Moscow</item>
+        <item>St. Petersburg</item>
+        <item>Yekaterinburg</item>
+        <item>Novosibirsk</item>
+        <item>Samara</item>
+    </string-array>
 </resources>
