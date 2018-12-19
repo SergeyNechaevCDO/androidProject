@@ -33,6 +33,14 @@
             android:orderInCategory="100"
             android:title="@string/action_pressure"
             app:showAsAction="never|withText|collapseActionView" />
+
+        <item
+            android:id="@+id/action_theme"
+            android:checkable="true"
+            android:checked="true"
+            android:orderInCategory="100"
+            android:title="@string/darkTheme"
+            app:showAsAction="never|withText|collapseActionView" />
     </group>
 
 </menu>

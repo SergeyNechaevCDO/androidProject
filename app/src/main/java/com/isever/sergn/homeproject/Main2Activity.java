@@ -2,6 +2,7 @@ package com.isever.sergn.homeproject;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -18,13 +21,18 @@ import java.util.Random;
 import static com.isever.sergn.homeproject.MainActivity.CITY;
 import static com.isever.sergn.homeproject.MainActivity.HUMIDITY;
 import static com.isever.sergn.homeproject.MainActivity.PRESSURE;
+import static com.isever.sergn.homeproject.MainActivity.THEME;
 import static com.isever.sergn.homeproject.MainActivity.WIND;
+
+
 
 public class Main2Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        setTheme(getIntent().getIntExtra(THEME, R.style.AppTheme));
         setContentView(R.layout.activity_main2);
         buildLayout();
     }
