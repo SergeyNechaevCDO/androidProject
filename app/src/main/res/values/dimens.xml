@@ -21,4 +21,5 @@
     <dimen name="myTextSize40">40sp</dimen>
     <dimen name="myTextSize12">12sp</dimen>
     <dimen name="myTextSize35">35sp</dimen>
+    <dimen name="dp_50">50dp</dimen>
 </resources>

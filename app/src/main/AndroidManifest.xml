@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".controllers.WeatherActivity" />
-        <activity android:name=".MainActivityNew" />
     </application>
 
 </manifest>

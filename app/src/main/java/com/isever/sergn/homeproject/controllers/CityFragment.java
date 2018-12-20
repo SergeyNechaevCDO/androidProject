@@ -1,59 +1,63 @@
 package com.isever.sergn.homeproject.controllers;
 
 import android.annotation.SuppressLint;
-import android.app.FragmentTransaction;
-import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.isever.sergn.homeproject.R;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class CityFragment extends ListFragment {
+public class CityFragment extends Fragment {
 
     private boolean isExistWeather;
     private Parcel currentParcel;
-    private OnClick onClickListener;
+
+    private List<PersonalData> persons;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.cities_list, container, false);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(
-                Objects.requireNonNull(getActivity()),
-                R.array.Cities,
-                android.R.layout.simple_list_item_activated_1
-        );
-
-        setListAdapter(adapter);
-
-        isExistWeather = getActivity().findViewById(R.id.weather) != null;
-
+        isExistWeather = Objects.requireNonNull(getActivity()).findViewById(R.id.weather) != null;
         if (savedInstanceState != null) {
             currentParcel = savedInstanceState.getParcelable("CurrentCity");
         } else {
-            currentParcel = new Parcel(
-                    0,
-                    getResources().getTextArray(R.array.Cities)[0].toString()
-            );
+            currentParcel = new Parcel(0, getResources().getTextArray(R.array.Cities)[0].toString());
         }
-
         if (isExistWeather) {
-            getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
             showWeather(currentParcel);
         }
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initializeData();
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.setAdapter(new CityAdapter(persons, new CityAdapter.ListInteractor() {
+            @Override
+            public void onItemClicked(int position) {
+                currentParcel = new Parcel(position, persons.get(position).name);
+                showWeather(currentParcel);
+            }
+        }));
     }
 
     @Override
@@ -62,25 +66,19 @@ public class CityFragment extends ListFragment {
         outState.putParcelable("CurrentCity", currentParcel);
     }
 
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        TextView cityNameView = (TextView) v;
-
-        currentParcel = new Parcel(position, cityNameView.getText().toString());
-
-        showWeather(currentParcel);
-        if (onClickListener != null) {
-            onClickListener.onListClick(position);
-        }
+    private void initializeData() {
+        persons = new ArrayList<>();
+        persons.add(new PersonalData("Москва", "Московская область", R.drawable.moscow));
+        persons.add(new PersonalData("Самара", "Самарская область", R.drawable.samara));
+        persons.add(new PersonalData("Якутия", "Якутская область", R.drawable.yakutia));
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        onClickListener = null;
     }
 
-    private void showWeather(Parcel parcel) {
+    public void showWeather(Parcel parcel) {
         if (isExistWeather) {
             assert getFragmentManager() != null;
             WeatherFragment weatherFragment = (WeatherFragment) getFragmentManager().findFragmentById(R.id.weather);
@@ -94,7 +92,7 @@ public class CityFragment extends ListFragment {
             }
         } else {
             Intent intent = new Intent();
-            intent.setClass(getActivity(), WeatherActivity.class);
+            intent.setClass(Objects.requireNonNull(getActivity()), WeatherActivity.class);
             intent.putExtra(WeatherFragment.PARCEL, parcel);
             startActivity(intent);
         }
