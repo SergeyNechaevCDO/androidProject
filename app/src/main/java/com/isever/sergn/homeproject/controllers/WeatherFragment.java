@@ -3,6 +3,7 @@ package com.isever.sergn.homeproject.controllers;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,7 @@ public class WeatherFragment extends Fragment {
         TextView cityNameView = layout.findViewById(R.id.main_city);
         cityNameView.setText(getParcel().getCityName());
         MainMenu mainMenu = MainActivity.mainMenu;
+        Log.d("#######", String.valueOf(mainMenu.getWind().isChecked()));
         if (mainMenu.getWind().isChecked()){
             layout.findViewById(R.id.wind).setVisibility(View.VISIBLE);
         }

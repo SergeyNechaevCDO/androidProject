@@ -24,7 +24,7 @@
 
     <style name="extra_options_linear_layout">
         <item name="android:orientation">vertical</item>
-        <!--<item name="android:visibility">gone</item>-->
+        <item name="android:visibility">gone</item>
     </style>
     <style name="extra_options_linear_layout_text_view_12">
         <item name="android:textAlignment">center</item>
