@@ -2,6 +2,7 @@ package com.isever.sergn.homeproject.controllers;
 
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,19 +28,13 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
     @NonNull
     @Override
     public CityViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_list, viewGroup, false);
+        View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_item, viewGroup, false);
         return new CityViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CityViewHolder cityViewHolder, @SuppressLint("RecyclerView") final int i) {
-        cityViewHolder.linearLayout.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        interactor.onItemClicked(i);
-                    }
-                });
+
 
         cityViewHolder.cityName.setText(persons.get(i).name);
         cityViewHolder.regionName.setText(persons.get(i).region);
@@ -56,8 +51,9 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
         super.onAttachedToRecyclerView(recyclerView);
     }
 
-    static class CityViewHolder extends RecyclerView.ViewHolder {
+    class CityViewHolder extends RecyclerView.ViewHolder {
 
+        CardView cardView;
         LinearLayout linearLayout;
         TextView cityName;
         TextView regionName;
@@ -65,10 +61,19 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
 
         CityViewHolder(@NonNull View itemView) {
             super(itemView);
+            this.cardView = itemView.findViewById(R.id.main_card);
             this.linearLayout = itemView.findViewById(R.id.main_layout_list);
             this.cityName = itemView.findViewById(R.id.main_city_name);
             this.regionName = itemView.findViewById(R.id.main_region_name);
             this.cityPhoto = itemView.findViewById(R.id.main_image);
+
+            this.cardView.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            interactor.onItemClicked(getLayoutPosition());
+                        }
+                    });
         }
     }
 
