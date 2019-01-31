@@ -29,6 +29,7 @@
             style="@style/extra_options_linear_layout_text_view_20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/humidity_value"
             android:text="@string/humidity_value" />
     </LinearLayout>
 
@@ -55,6 +56,7 @@
             style="@style/extra_options_linear_layout_text_view_20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/wind_value"
             android:text="@string/wind_value" />
     </LinearLayout>
 
@@ -81,6 +83,7 @@
             style="@style/extra_options_linear_layout_text_view_20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/pressure_value"
             android:text="@string/pressure_value" />
     </LinearLayout>
 </LinearLayout>

@@ -16,6 +16,8 @@ import com.isever.sergn.homeproject.controllers.MainMenu;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private final String TAG = "#MainActivity#";
+
     public final static MainMenu mainMenu = new MainMenu();
 
     @Override
