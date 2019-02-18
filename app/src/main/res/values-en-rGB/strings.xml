@@ -22,6 +22,7 @@
     <string name="humidity">humidity</string>
     <string name="humidity_value">55%</string>
     <string name="getHttp">Get http</string>
+    <string name="temperature_faringate">○</string>
     <string name="wind">wind speed</string>
     <string name="wind_value">4 m/s</string>
     <string name="pressure">pressure</string>

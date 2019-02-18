@@ -13,10 +13,6 @@ import android.widget.TextView;
 import com.isever.sergn.homeproject.MainActivity;
 import com.isever.sergn.homeproject.R;
 import com.isever.sergn.homeproject.request.OkHttpRequester;
-import com.isever.sergn.homeproject.request.WeatherParams;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
@@ -43,7 +39,7 @@ public class WeatherFragment extends Fragment {
 
         View layout = inflater.inflate(R.layout.fragment_weather, container, false);
 
-        if (mainMenu.getHttp().isChecked()) {
+        if (!mainMenu.getHttp().isChecked()) {
             layout.findViewById(R.id.main_web).setVisibility(View.VISIBLE);
             final WebView page = layout.findViewById(R.id.main_web);
 
@@ -56,7 +52,7 @@ public class WeatherFragment extends Fragment {
 
             requester.run("https://weather.com/ru-RU/weather/today/l/55.75,37.58");
 
-        }else{
+        } else {
             layout.findViewById(R.id.main_params_layout_weather).setVisibility(View.VISIBLE);
 
             if (getResources().getConfiguration().orientation == ORIENTATION_LANDSCAPE) {
