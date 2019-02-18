@@ -1,24 +1,35 @@
 package com.isever.sergn.homeproject.controllers;
 
+import android.content.SharedPreferences;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.isever.sergn.homeproject.R;
 
 public class MainMenu {
+
     private MenuItem wind;
     private MenuItem humidity;
     private MenuItem pressure;
-    private MenuItem myTheme;
+    private MenuItem http;
 
-    public MenuItem getWind(){
+    public MenuItem getWind() {
         return wind;
     }
-    public MenuItem getHumidity(){
+
+    public MenuItem getHumidity() {
         return humidity;
     }
-    public MenuItem getPressure(){
+
+    public MenuItem getPressure() {
         return pressure;
+    }
+
+    public MenuItem getHttp() {
+        return http;
+
     }
 
     public boolean optionSelected(MenuItem item) {
@@ -50,13 +61,11 @@ public class MainMenu {
                     pressure.setTitle(R.string.deactivate_pressure);
                 }
                 return true;
-            case R.id.action_theme:
+            case R.id.action_http:
                 if (item.isChecked()) {
-                    myTheme.setChecked(false);
-                    myTheme.setTitle(R.string.whiteTheme);
+                    http.setChecked(false);
                 } else {
-                    myTheme.setChecked(true);
-                    myTheme.setTitle(R.string.darkTheme);
+                    http.setChecked(true);
                 }
                 return true;
             default:
@@ -65,11 +74,11 @@ public class MainMenu {
         }
     }
 
-    public boolean createOption(Menu menu){
+    public boolean createOption(Menu menu) {
         wind = menu.findItem(R.id.action_wind);
         humidity = menu.findItem(R.id.action_humidity);
         pressure = menu.findItem(R.id.action_pressure);
-        myTheme = menu.findItem(R.id.action_theme);
+        http = menu.findItem(R.id.action_http);
         return true;
     }
 }

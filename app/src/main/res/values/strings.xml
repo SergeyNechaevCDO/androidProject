@@ -25,6 +25,7 @@
     <string name="pressure">давление</string>
     <string name="pressure_value">759 мм</string>
     <string name="darkTheme">темная тема</string>
+    <string name="getHttp">Получить через интернет</string>
     <string name="whiteTheme">светлая тема</string>
     <string name="editWhiteTheme">Тема изменене на светлую</string>
     <string name="editDarkTheme">Тема изменене на темную</string>

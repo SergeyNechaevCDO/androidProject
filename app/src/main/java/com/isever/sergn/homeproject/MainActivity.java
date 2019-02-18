@@ -1,6 +1,8 @@
 package com.isever.sergn.homeproject;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +15,9 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.isever.sergn.homeproject.controllers.MainMenu;
+import com.isever.sergn.homeproject.controllers.WeatherFragment;
+
+import java.util.prefs.Preferences;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -38,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView.setNavigationItemSelectedListener(this);
 
+
+
     }
 
     @Override
@@ -50,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return mainMenu.createOption(menu);
     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

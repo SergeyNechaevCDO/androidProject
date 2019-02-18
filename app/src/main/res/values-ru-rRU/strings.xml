@@ -19,6 +19,7 @@
     <string name="action_pressure">Показать давление</string>
     <string name="deactivate_pressure">Скрыть давление</string>
     <string name="time">14:11</string>
+    <string name="getHttp">Получить через интернет</string>
     <string name="humidity">влажность</string>
     <string name="humidity_value">55%</string>
     <string name="wind">скорость ветра</string>

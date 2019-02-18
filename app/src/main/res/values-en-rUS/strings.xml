@@ -19,6 +19,7 @@
     <string name="action_pressure">Show pressure</string>
     <string name="deactivate_pressure">Hide pressure</string>
     <string name="time">14:11</string>
+    <string name="getHttp">Get http</string>
     <string name="humidity">humidity</string>
     <string name="humidity_value">55%</string>
     <string name="wind">wind speed</string>
