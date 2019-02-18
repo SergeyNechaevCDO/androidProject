@@ -8,6 +8,7 @@
     <string name="param_snow_text">Снег</string>
     <string name="param_cloudless_text">Безоблачно</string>
     <string name="temperature_snow">-2°</string>
+    <string name="temperature_faringate">○</string>
     <string name="temperature">10°</string>
     <string name="todo">TODO</string>
     <string name="city">Москва</string>
