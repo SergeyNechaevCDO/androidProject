@@ -1,18 +1,17 @@
 package com.isever.sergn.homeproject.controllers;
 
+import android.app.Service;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import com.isever.sergn.homeproject.R;
-
-import java.util.Random;
+import com.isever.sergn.homeproject.service.MainService;
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
@@ -23,6 +22,7 @@ public class WeatherActivity extends AppCompatActivity implements SensorEventLis
     private SensorManager mSensorManager;
     private Sensor Temperature;
     private Sensor Humidity;
+    private Intent Intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,8 @@ public class WeatherActivity extends AppCompatActivity implements SensorEventLis
             return;
         }
 
+        Intent = new Intent(WeatherActivity.this, MainService.class);
+
         if (savedInstanceState == null) {
             WeatherFragment details = new WeatherFragment();
             details.setArguments(getIntent().getExtras());
@@ -44,7 +46,8 @@ public class WeatherActivity extends AppCompatActivity implements SensorEventLis
 
     protected void onResume() {
         super.onResume();
-
+        // Вызов сервиса (пако что пустой)
+        startService(Intent);
         if (Temperature != null) {
             mSensorManager.registerListener(this, Temperature, SensorManager.SENSOR_DELAY_NORMAL);
         }
@@ -55,17 +58,19 @@ public class WeatherActivity extends AppCompatActivity implements SensorEventLis
 
     protected void onPause() {
         super.onPause();
+        // Остановка сервиса
+        stopService(Intent);
         mSensorManager.unregisterListener(this);
     }
 
 
     private void showLightSensors(SensorEvent event) {
-        if (event.sensor.getStringType().equals("android.sensor.ambient_temperature")){
+        if (event.sensor.getStringType().equals("android.sensor.ambient_temperature")) {
             TextView temperature = findViewById(R.id.main_temperature);
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append((int) event.values[0]).append("°");
             temperature.setText(stringBuilder);
-        }else if(event.sensor.getStringType().equals("android.sensor.relative_humidity")){
+        } else if (event.sensor.getStringType().equals("android.sensor.relative_humidity")) {
             TextView humidity = findViewById(R.id.humidity_value);
             humidity.setText(String.valueOf(event.values[0]));
         }

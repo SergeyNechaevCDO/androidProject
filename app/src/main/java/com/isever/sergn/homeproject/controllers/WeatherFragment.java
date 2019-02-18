@@ -1,7 +1,5 @@
 package com.isever.sergn.homeproject.controllers;
 
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -46,13 +44,13 @@ public class WeatherFragment extends Fragment {
         TextView cityNameView = layout.findViewById(R.id.main_city);
         cityNameView.setText(getParcel().getCityName());
         MainMenu mainMenu = MainActivity.mainMenu;
-        if (mainMenu.getWind().isChecked()){
+        if (mainMenu.getWind().isChecked()) {
             layout.findViewById(R.id.wind).setVisibility(View.VISIBLE);
         }
-        if (mainMenu.getHumidity().isChecked()){
+        if (mainMenu.getHumidity().isChecked()) {
             layout.findViewById(R.id.humidity).setVisibility(View.VISIBLE);
         }
-        if (mainMenu.getPressure().isChecked()){
+        if (mainMenu.getPressure().isChecked()) {
             layout.findViewById(R.id.pressure).setVisibility(View.VISIBLE);
         }
         return layout;
